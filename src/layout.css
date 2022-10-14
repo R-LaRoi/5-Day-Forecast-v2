@@ -1,0 +1,28 @@
+.card{
+margin-top: 5%;
+  width: 65%;
+  padding-bottom: 5%;
+  
+    background-color: rgba(0, 0, 0, 0.431);
+      color: #fff;
+}
+
+body {font-family: 'Urbanist', sans-serif;
+
+}
+
+h1{
+font-size: 60px;
+}
+
+.button { border: none;
+ line-height: 25px;
+ margin-left: 5px;
+
+}
+.button:hover {
+  border: none;
+ color: #fff;
+ background-color: dimgray;
+
+}

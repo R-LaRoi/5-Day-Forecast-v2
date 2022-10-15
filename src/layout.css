@@ -4,6 +4,7 @@ margin-top: 5%;
   padding-bottom: 15%;
     background-color: rgba(0, 0, 0, 0.431);
       color: #fff;
+      position: relative;
     
 }
 
@@ -12,16 +13,46 @@ body {font-family: 'Urbanist', sans-serif;
 
 h1{
   
-font-size: 100px;
-
+font-size: 110px;
+font-weight: 00;
+position: relative;
+color: rgb(129, 111, 111);
 }
 
 h2 {font-size: 50px;
- 
+position: relative;
+color: rgb(155, 88, 88);
+padding-top: 40px;
 }
 
-h3{font-size: 50px;}
+h3{font-size: 50px;
+  
+}
 
+.time{ color: rgb(155, 88, 88);
+
+}
+
+.wind { color: white;
+  position: relative;
+ top: 26%;
+ font-size: 20px;
+
+ right:10%;
+ line-height: -5px;
+color: rgb(129, 111, 111);
+
+}
+
+
+#des {
+  color: rgb(129, 111, 111);
+  font-size: 35px;
+  position: relative;
+  top: 26%;
+
+ 
+}
 .button { border: none;
  line-height: 25px;
  margin-left: 5px;

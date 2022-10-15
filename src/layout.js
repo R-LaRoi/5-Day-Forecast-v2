@@ -18,7 +18,7 @@ export default function Layout() {
       name: response.data.name,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
-      describe: response.data.weather.description,
+      describe: response.data.weather[0].main,
     });
   }
 
@@ -36,7 +36,7 @@ export default function Layout() {
             <div className="container text-center">
               <div className="row">
                 <div className="col">
-                  <div>day/time</div>
+                  <div className="time">day/time</div>
 
                   <br />
                   <div>
@@ -45,19 +45,36 @@ export default function Layout() {
                       alt="weather icon"
                     ></img>
                   </div>
+                  <div className="container">
+                    <div className="row">
+                      <div className="col-4">
+                        <ul className="desrcibe" id="des">
+                          {results.describe}
+                        </ul>
+                      </div>
+                      <div className="col-4">
+                        <h1 className="celsius">{Math.round(results.temp)}°</h1>
+                      </div>
 
-                  <h1 className="celsius">{Math.round(results.temp)}°</h1>
-                  {""}
-                  <div className="row justify-content-end" id="wind">
-                    <div className="humidity">
-                      Humidity:
-                      {Math.round(results.humidity)}%
-                    </div>
-                    <div className="wind">
-                      Wind:
-                      {Math.round(results.wind)}kmH
+                      <div className="col-4">
+                        <ul className="wind">
+                          <div className="humidity">
+                            Humidity: {""}
+                            {Math.round(results.humidity)}%
+                          </div>
+
+                          <div>
+                            Wind: {""}
+                            {""}
+                            {Math.round(results.wind)}kmH
+                          </div>
+                        </ul>
+                      </div>
                     </div>
                   </div>
+
+                  {""}
+                  <div className="row justify-content-end" id="wind"></div>
                 </div>
                 <div className="location">
                   <h2>{results.name}</h2>

@@ -18,6 +18,7 @@ export default function Layout() {
       name: response.data.name,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
+      describe: response.data.weather.description,
     });
   }
 
@@ -36,6 +37,7 @@ export default function Layout() {
               <div className="row">
                 <div className="col">
                   <div>day/time</div>
+
                   <br />
                   <div>
                     <img
@@ -43,29 +45,32 @@ export default function Layout() {
                       alt="weather icon"
                     ></img>
                   </div>
+
                   <h1 className="celsius">{Math.round(results.temp)}°</h1>
-                  <div className="element">{results.describe}</div> {""}
-                  <span className="wind">
-                    Wind:
-                    {Math.round(results.wind)}kmH
-                  </span>{" "}
                   {""}
-                  <span className="humidity">
-                    Humidity:
-                    {Math.round(results.humidity)}%
-                  </span>
-                  {""}
-                  <h2>{results.name}</h2>
-                  <br />
-                  <form onSubmit={getOpenWeather}>
-                    <input
-                      type="search"
-                      placeholder="enter a city"
-                      onChange={getCity}
-                    />
-                    <input className="button" type="submit" value="search" />
-                  </form>
+                  <div className="row justify-content-end" id="wind">
+                    <div className="humidity">
+                      Humidity:
+                      {Math.round(results.humidity)}%
+                    </div>
+                    <div className="wind">
+                      Wind:
+                      {Math.round(results.wind)}kmH
+                    </div>
+                  </div>
                 </div>
+                <div className="location">
+                  <h2>{results.name}</h2>
+                </div>
+                <br />
+                <form onSubmit={getOpenWeather}>
+                  <input
+                    type="search"
+                    placeholder="enter a city"
+                    onChange={getCity}
+                  />
+                  <input className="button" type="submit" value="search" />
+                </form>
               </div>
             </div>
           </div>
@@ -77,7 +82,7 @@ export default function Layout() {
       <div className="forecast">
         <div className="card">
           <div className="card-body">
-            <div className="container text-center">
+            <div className="container">
               <div className="row">
                 <div className="col">
                   <div>day/time</div>
@@ -90,7 +95,7 @@ export default function Layout() {
                   </div>
 
                   {""}
-                  <h2>Search city for weather</h2>
+                  <h3>Search city for weather</h3>
                   <br />
                   <form onSubmit={getOpenWeather}>
                     <input

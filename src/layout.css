@@ -1,19 +1,26 @@
 .card{
 margin-top: 5%;
-  width: 65%;
-  padding-bottom: 5%;
-  
+  width: 70%;
+  padding-bottom: 15%;
     background-color: rgba(0, 0, 0, 0.431);
       color: #fff;
+    
 }
 
 body {font-family: 'Urbanist', sans-serif;
-
 }
 
 h1{
-font-size: 60px;
+  
+font-size: 100px;
+
 }
+
+h2 {font-size: 50px;
+ 
+}
+
+h3{font-size: 50px;}
 
 .button { border: none;
  line-height: 25px;

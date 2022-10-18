@@ -18,10 +18,10 @@ export default function Degrees(props) {
       <div className="col-4">
         <h1 className="celsius">{Math.round(props.celsius)}</h1>
         <span className="units">
-          <a href="#" onClick={showCelsius}>
+          <a href="#top" onClick={showCelsius}>
             °C | &nbsp;
           </a>
-          <a href="#" onClick={convert}>
+          <a href="#top" onClick={convert}>
             °F
           </a>
         </span>
@@ -34,10 +34,10 @@ export default function Degrees(props) {
         <h1 className="celsius">{Math.round(fahrenheit)}</h1>
         <span className="units">
           {" "}
-          <a href="#" onClick={showCelsius}>
+          <a href="#top" onClick={showCelsius}>
             °C |{" "}
           </a>
-          <a href="#" onClick={convert}>
+          <a href="#top" onClick={convert}>
             &nbsp;°F
           </a>
         </span>

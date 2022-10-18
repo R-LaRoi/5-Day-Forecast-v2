@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "./layout.css";
 import axios from "axios";
+import Timestamp from "./timestamp";
+import Degrees from "./degrees";
 
-export default function Layout() {
+export default function Layout(props) {
   const [city, setCity] = useState("");
   const [results, setResults] = useState("");
   const [display, setDisplay] = useState(false);
@@ -12,6 +14,7 @@ export default function Layout() {
   }
 
   function showForecast(response) {
+    console.log(response.data.weather[0].icon);
     setDisplay(true);
     setResults({
       temp: response.data.main.temp,
@@ -19,6 +22,8 @@ export default function Layout() {
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
       describe: response.data.weather[0].main,
+      date: new Date(response.data.dt * 1000),
+      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     });
   }
 
@@ -28,6 +33,7 @@ export default function Layout() {
     event.preventDefault();
     axios.get(apiUrl).then(showForecast);
   }
+
   if (display) {
     return (
       <div className="forecast">
@@ -36,15 +42,12 @@ export default function Layout() {
             <div className="container text-center">
               <div className="row">
                 <div className="col">
-                  <div className="time">day/time</div>
+                  <div className="time">
+                    <Timestamp date={results.date} />
+                  </div>
 
                   <br />
-                  <div>
-                    <img
-                      src="http://openweathermap.org/img/wn/04n@2x.png"
-                      alt="weather icon"
-                    ></img>
-                  </div>
+                  <img src={results.icon} alt="weather" />
                   <div className="container">
                     <div className="row">
                       <div className="col-4">
@@ -52,9 +55,8 @@ export default function Layout() {
                           {results.describe}
                         </ul>
                       </div>
-                      <div className="col-4">
-                        <h1 className="celsius">{Math.round(results.temp)}°</h1>
-                      </div>
+
+                      <Degrees celsius={results.temp} />
 
                       <div className="col-4">
                         <ul className="wind">
@@ -102,17 +104,11 @@ export default function Layout() {
             <div className="container">
               <div className="row">
                 <div className="col">
-                  <div>day/time</div>
                   <br />
-                  <div>
-                    <img
-                      src="http://openweathermap.org/img/wn/04n@2x.png"
-                      alt="weather icon"
-                    ></img>
-                  </div>
 
+                  <div></div>
                   {""}
-                  <h3>Search city for weather</h3>
+                  <h3> 🔎 Search city for weather</h3>
                   <br />
                   <form onSubmit={getOpenWeather}>
                     <input

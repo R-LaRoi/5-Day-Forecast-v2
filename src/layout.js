@@ -3,6 +3,7 @@ import "./layout.css";
 import axios from "axios";
 import Timestamp from "./timestamp";
 import Degrees from "./degrees";
+import FiveDay from "./fiveday";
 
 export default function Layout(props) {
   const [city, setCity] = useState("");
@@ -15,6 +16,7 @@ export default function Layout(props) {
 
   function showForecast(response) {
     console.log(response.data.weather[0].icon);
+    console.log(response.data.coord);
     setDisplay(true);
     setResults({
       temp: response.data.main.temp,
@@ -24,6 +26,7 @@ export default function Layout(props) {
       describe: response.data.weather[0].main,
       date: new Date(response.data.dt * 1000),
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      coordinates: response.data.coord,
     });
   }
 
@@ -40,59 +43,54 @@ export default function Layout(props) {
         <div className="card">
           <div className="card-body">
             <div className="container text-center">
-              <div className="row">
-                <div className="col">
-                  <div className="time">
-                    <Timestamp date={results.date} />
-                  </div>
+              <div className="time">
+                <Timestamp date={results.date} />
+              </div>
 
-                  <br />
-                  <img src={results.icon} alt="weather" />
-                  <div className="container">
-                    <div className="row">
-                      <div className="col-4">
-                        <ul className="desrcibe" id="des">
-                          {results.describe}
-                        </ul>
-                      </div>
-
-                      <Degrees celsius={results.temp} />
-
-                      <div className="col-4">
-                        <ul className="wind">
-                          <div className="humidity">
-                            Humidity: {""}
-                            {Math.round(results.humidity)}%
-                          </div>
-
-                          <div>
-                            Wind: {""}
-                            {""}
-                            {Math.round(results.wind)}kmH
-                          </div>
-                        </ul>
-                      </div>
+              <br />
+              <img src={results.icon} alt="weather" />
+              <div className="container">
+                <Degrees celsius={results.temp} />
+                <div class="container text-center">
+                  <div class="row">
+                    <div class="col" id="deatils">
+                      {" "}
+                      Wind: {""}
+                      {""}
+                      {Math.round(results.wind)}kmH
+                    </div>
+                    <div class="col" id="deatils">
+                      {results.describe}
+                    </div>
+                    <div class="col" id="deatils">
+                      Humidity: {""}
+                      {Math.round(results.humidity)}%
                     </div>
                   </div>
 
-                  {""}
-                  <div className="row justify-content-end" id="wind"></div>
+                  <div></div>
+                  <div> </div>
+                  <div></div>
                 </div>
-                <div className="location">
-                  <h2>{results.name}</h2>
-                </div>
-                <br />
-                <form onSubmit={getOpenWeather}>
-                  <input
-                    type="search"
-                    placeholder="enter a city"
-                    onChange={getCity}
-                  />
-                  <input className="button" type="submit" value="search" />
-                </form>
               </div>
             </div>
+            <div>
+              <FiveDay coordinates={results.coordinates} />
+            </div>
+            {""}
           </div>
+          <div className="location">
+            <h2>{results.name}</h2>
+          </div>
+          <br />
+          <form onSubmit={getOpenWeather}>
+            <input
+              type="search"
+              placeholder="enter a city"
+              onChange={getCity}
+            />
+            <input className="button" type="submit" value="search" />
+          </form>
         </div>
       </div>
     );
@@ -105,9 +103,9 @@ export default function Layout(props) {
               <div className="row">
                 <div className="col">
                   <br />
-
                   <div></div>
                   {""}
+
                   <h3> 🔎 Search city for weather</h3>
                   <br />
                   <form onSubmit={getOpenWeather}>

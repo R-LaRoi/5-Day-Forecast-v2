@@ -17,12 +17,13 @@ h1{
 font-size: 110px;
 font-weight: 00;
 position: relative;
-color: rgb(129, 111, 111);
+color: rgba(247, 220, 206, 0.812);
+left:100%;
 }
 
 h2 {font-size: 50px;
 position: relative;
-color: rgb(155, 88, 88);
+color: rgba(247, 220, 206, 0.812);
 padding-top: 40px;
 }
 
@@ -34,25 +35,9 @@ h3{font-size: 50px;
 
 }
 
-.wind { color: white;
-  position: relative;
- top: 32%;
- font-size: 20px;
-
- right:10%;
- line-height: -5px;
-color: rgb(129, 111, 111);
-
-}
-
-
-#des {
-  color: rgb(129, 111, 111);
-  font-size: 45px;
-  position: relative;
-  top: 30%;
-
- 
+.row{
+  color: rgba(247, 220, 206, 0.812) ;
+  font-size: 24px;
 }
 .button { border: none;
  line-height: 25px;
@@ -66,8 +51,12 @@ color: rgb(129, 111, 111);
 
 }
 
-.units{ position: relative;
-  bottom: 70%;
-  left: 47%;
+.units{ position: absolute;
+  bottom: 72%;
+  left: 59%;
   font-size: 15px;
+}
+
+ #link {color: rgb(129, 111, 111);
+  text-decoration: none;
 }

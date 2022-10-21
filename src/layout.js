@@ -55,18 +55,18 @@ export default function Layout(props) {
                     <b>°F</b>
                   </span>
                 </h1>
-                <div class="container text-center">
-                  <div class="row">
-                    <div class="col" id="details">
+                <div className="container text-center">
+                  <div className="row">
+                    <div className="col" id="details">
                       {" "}
                       Wind: {""}
                       {""}
                       {Math.round(results.wind)}kmH
                     </div>
-                    <div class="col" id="details">
+                    <div className="col" id="details">
                       {results.describe}
                     </div>
-                    <div class="col" id="details">
+                    <div className="col" id="details">
                       Humidity: {""}
                       {Math.round(results.humidity)}%
                     </div>

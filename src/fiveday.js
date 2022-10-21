@@ -53,6 +53,8 @@ export default function FiveDay(props) {
                     <Wkday data={dailyForecast} />
                   </div>
                 );
+              } else {
+                return null;
               }
             })}
           </div>

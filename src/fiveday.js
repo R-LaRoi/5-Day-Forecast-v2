@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./fiveday.css";
 import Wkday from "./wkday";
@@ -31,6 +31,10 @@ export default function FiveDay(props) {
   const [forecast, setForecast] = useState("");
   const [call, setCall] = useState(false);
 
+  useEffect(() => {
+    setCall(false);
+  }, [props.coordinates]);
+
   function showFiveDay(response) {
     setForecast(response.data.daily);
     setCall(true);
@@ -57,7 +61,7 @@ export default function FiveDay(props) {
     );
   } else {
     let apiKey = "a43564c91a6c605aeb564c9ed02e3858";
-    let apiLink = `https://api.openweathermap.org/data/3.0/onecall?lat=${props.coordinates.lat}&lon=${props.coordinates.lat}&appid=${apiKey}&units=metric`;
+    let apiLink = `https://api.openweathermap.org/data/3.0/onecall?lat=${props.coordinates.lat}&lon=${props.coordinates.lat}&appid=${apiKey}&units=imperial`;
 
     axios.get(apiLink).then(showFiveDay);
 

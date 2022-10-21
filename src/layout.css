@@ -18,13 +18,15 @@ font-size: 110px;
 font-weight: 00;
 position: relative;
 color: rgba(247, 220, 206, 0.812);
-left:100%;
+
 }
 
 h2 {font-size: 50px;
-position: relative;
+position: absolute;
 color: rgba(247, 220, 206, 0.812);
-padding-top: 40px;
+bottom: 10%;
+left:10%;
+
 }
 
 h3{font-size: 50px;
@@ -37,7 +39,7 @@ h3{font-size: 50px;
 
 .row{
   color: rgba(247, 220, 206, 0.812) ;
-  font-size: 24px;
+  font-size: 18px;
 }
 .button { border: none;
  line-height: 25px;
@@ -51,12 +53,16 @@ h3{font-size: 50px;
 
 }
 
-.units{ position: absolute;
-  bottom: 72%;
-  left: 59%;
-  font-size: 15px;
+.unitf{ position: absolute;
+  bottom: 66%;
+  left: 61%;
+  font-size: 20px;
+
 }
 
- #link {color: rgb(129, 111, 111);
-  text-decoration: none;
+
+form{
+ position: absolute;
+ bottom:5%;
+ left:8%;
 }

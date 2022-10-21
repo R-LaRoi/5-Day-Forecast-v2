@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./layout.css";
 import axios from "axios";
 import Timestamp from "./timestamp";
-import Degrees from "./degrees";
 import FiveDay from "./fiveday";
 
 export default function Layout(props) {
@@ -31,7 +30,7 @@ export default function Layout(props) {
   }
 
   function getOpenWeather(event) {
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=a43564c91a6c605aeb564c9ed02e3858&units=metric`;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=a43564c91a6c605aeb564c9ed02e3858&units=imperial`;
 
     event.preventDefault();
     axios.get(apiUrl).then(showForecast);
@@ -50,19 +49,24 @@ export default function Layout(props) {
               <br />
               <img src={results.icon} alt="weather" />
               <div className="container">
-                <Degrees celsius={results.temp} />
+                <h1 className="degrees">
+                  {Math.round(results.temp)}
+                  <span className="unitf">
+                    <b>°F</b>
+                  </span>
+                </h1>
                 <div class="container text-center">
                   <div class="row">
-                    <div class="col" id="deatils">
+                    <div class="col" id="details">
                       {" "}
                       Wind: {""}
                       {""}
                       {Math.round(results.wind)}kmH
                     </div>
-                    <div class="col" id="deatils">
+                    <div class="col" id="details">
                       {results.describe}
                     </div>
-                    <div class="col" id="deatils">
+                    <div class="col" id="details">
                       Humidity: {""}
                       {Math.round(results.humidity)}%
                     </div>
@@ -74,10 +78,12 @@ export default function Layout(props) {
                 </div>
               </div>
             </div>
+            <br />
+            <hr />
             <div>
               <FiveDay coordinates={results.coordinates} />
             </div>
-            {""}
+            {""} <hr />
           </div>
           <div className="location">
             <h2>{results.name}</h2>

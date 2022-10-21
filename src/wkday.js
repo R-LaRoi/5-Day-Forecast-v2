@@ -19,12 +19,20 @@ export default function Wkday(props) {
     return days[day];
   }
 
+  function icon() {
+    let icon = `http://openweathermap.org/img/wn/${props.data.weather[0].icon}@2x.png`;
+
+    return `${icon}`;
+  }
+
   return (
     <div className="row" id="seven">
       <div className="col">
         <div className="day">{day()}</div>
         <div className="hightemp">{maxtemp()}</div>
-        <div className="icon">{props.data.weather[0].icon}</div>
+        <div className="icon">
+          <img src={icon()} alt="weather"></img>
+        </div>
         <div className="lowtemp">{mintemp()}</div>
       </div>
     </div>

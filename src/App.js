@@ -11,10 +11,6 @@ function App() {
         <Layout />
         <br />
         <br />
-        <a href="https://github.com/CrystalQuest112" target="_blank ">
-          Open source code,
-        </a>{" "}
-        by Rachel
       </div>
     </div>
   );

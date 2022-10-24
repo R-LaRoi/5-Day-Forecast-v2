@@ -3,6 +3,7 @@ import "./layout.css";
 import axios from "axios";
 import Timestamp from "./timestamp";
 import FiveDay from "./fiveday";
+import Icon from "./icon";
 
 export default function Layout(props) {
   const [city, setCity] = useState("");
@@ -24,7 +25,7 @@ export default function Layout(props) {
       humidity: response.data.main.humidity,
       describe: response.data.weather[0].main,
       date: new Date(response.data.dt * 1000),
-      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      icon: response.data.weather[0].icon,
       coordinates: response.data.coord,
     });
   }
@@ -45,9 +46,8 @@ export default function Layout(props) {
               <div className="time">
                 <Timestamp date={results.date} />
               </div>
-
               <br />
-              <img src={results.icon} alt="weather" />
+              <Icon code={results.icon} />
               <div className="container">
                 <h1 className="degrees">
                   {Math.round(results.temp)}

@@ -38,7 +38,7 @@ h3{font-size: 50px;
 }
 
 .row{
-  color: rgba(247, 220, 206, 0.812) ;
+  color:#c3a8a7 ;
   font-size: 18px;
 }
 .button { border: none;
@@ -65,4 +65,20 @@ form{
  position: absolute;
  bottom:5%;
  left:8%;
+}
+
+.footer{
+font-size: 20px;
+ color: rgb(158, 147, 147);
+position: relative;
+left:10%;
+background-color: rgba(18, 17, 17, 0.612);
+margin-left: -10%;
+padding:10px;
+}
+
+.iconic{
+
+  color: #fff;
+  size:30px;
 }

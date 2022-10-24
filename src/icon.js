@@ -1,7 +1,5 @@
 import React from "react";
-
 import {
-  WiDayCloudy,
   WiCloudy,
   WiRaindrops,
   WiThunderstorm,
@@ -32,16 +30,17 @@ export default function Icon(props) {
     "13n": WiSnowflakeCold,
     "50n": WiFog,
   };
+
   if (props.code.includes("02d", "02n", "01d", "01n"))
-    return <WiDaySunnyOvercast size={80} color="#bb6562" />;
+    return <WiDaySunnyOvercast size={80} color="#b6a8a1" />;
   if (props.code.includes("50d", "50n"))
-    return <WiFog size={80} color="#bb6562" />;
+    return <WiFog size={80} color="#b6a8a1" />;
   if (props.code.includes("13d", "13n"))
-    return <WiSnowflakeCold size={80} color="#bb6562" />;
+    return <WiSnowflakeCold size={80} color="#b6a8a1" />;
   if (props.code.includes("11d", "11n"))
-    return <WiThunderstorm size={80} color="#bb6562" />;
+    return <WiThunderstorm size={80} color="#b6a8a1" />;
   if (props.code.includes("10d", "10n", "09n", "09d"))
-    return <WiRaindrops size={80} color="#bb6562f" />;
+    return <WiRaindrops size={80} color="#b6a8a1" />;
   else props.code.includes("03d", "03n", "04d", "04n");
-  return <WiDayCloudy size={80} color="#bb6562" />;
+  return <WiCloudy size={80} color="#b6a8a1" />;
 }
